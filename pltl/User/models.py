@@ -15,7 +15,7 @@ class User(AbstractBaseUser):
     	try:
     		User.clean_fields(self)
     	except ValidationError as e:
-    		print 'ValidationError!: %s' %(e)
+    		print 'ValidationError: %s' %(e)
     		error = True
     	if error == False:
     		super(User,self).save(*args, **kwargs)
