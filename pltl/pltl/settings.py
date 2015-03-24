@@ -80,12 +80,12 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
+X = '/Users/ray/Desktop/pltl_sandbox/python_django_sandbox/'
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(X, 'static'),
 )
-X = '/Users/ray/Desktop/pltl_sandbox/python_django_sandbox/'
 TEMPLATE_DIRS = (
     os.path.join(X, 'templates'),
 )

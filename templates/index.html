@@ -118,20 +118,21 @@
                         <div align="center"><h2>Create an Account</h2></div>
                         <hr/>
                         <div class="medium-6 medium-centered large-centered large-6 columns">
-                          <form data-abide>
+                          <form data-abide action = "{% url 'User:user_signup_save' %}" method="POST">
+                            {%csrf_token%}
                             <div class="name-field">
                               <label>First Name</label>
-                              <input type="text" required></input>
+                              <input name="fname"type="text" required></input>
                               <small class="error" data-error-message="">A first and last name is required.</small>
                             </div>
                             <div class="name-field">
                               <label>Last Name</label>
-                              <input type="text" required></input>
+                              <input name="lname"type="text" required></input>
                               <small class="error" data-error-message="">A first and last name is required.</small>
                             </div>
                             <div class="email-field">
                               <label>Email</label>
-                              <input id="email" type="email" placeholder="example@dot.com" required></input>
+                              <input name="email" type="email" placeholder="example@dot.com" required></input>
                               <small class="error">An email address is required.</small>
                             </div>
                             <div class="password">
@@ -151,7 +152,7 @@
                             </div>
                             <br />
                             <br />         
-                            <button class="radius button submit small"><strong>Sign Up</strong></button>
+                            <button class="radius button submit small" onclick=''><strong>Sign Up</strong></button>
                             <br />
                             <small>Sign in with <a href="#">Facebook</a>, <a href="#">Google</a>, or <a href="#">Twitter</a>.</small>
                           </form>
