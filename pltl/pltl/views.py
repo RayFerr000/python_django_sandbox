@@ -1,6 +1,7 @@
-from django.views.generic.base import TemplateView
+from django.shortcuts import render_to_response
+
+def home(request):
+	return render_to_response(index.html)
 
 
-class HomeView(TemplateView):
 
-    template_name = 'index.html'

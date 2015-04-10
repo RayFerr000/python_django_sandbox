@@ -10,14 +10,19 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as DEFAULT_TEMPLATE_CONTEXT_PROCESSORS
+TEMPLATE_CONTEXT_PROCESSORS = DEFAULT_TEMPLATE_CONTEXT_PROCESSORS + (
+    'django.core.context_processors.request',
+)
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+AUTH_USER_MODEL = 'User.User'
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '_4^v+wdlmsa^1-qd-u$)7*il1t79285pv3-$beco@0ho_cg&k_'
+SECRET_KEY = 'y5n^c7*6l*l3lq%eu&vf**9nk^##izwa!l^tutxhb$61!^+xx3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -36,7 +41,10 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'User'
+    'User',
+    'Course',
+    'Assignment',
+    'Homework',	
 )
 
 MIDDLEWARE_CLASSES = (
@@ -77,15 +85,18 @@ USE_L10N = True
 
 USE_TZ = True
 
+AUTHENTICATION_BACKENDS = (
+        'django.contrib.auth.backends.ModelBackend',
+    )
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
-X = '/Users/ray/Desktop/pltl_sandbox/python_django_sandbox/'
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
-    os.path.join(X, 'static'),
+    os.path.join(BASE_DIR, 'static'),
 )
 TEMPLATE_DIRS = (
-    os.path.join(X, 'templates'),
+    os.path.join(BASE_DIR, 'templates'),
 )

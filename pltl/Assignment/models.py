@@ -5,7 +5,7 @@ from Course.models import Course
 class Assignment(models.Model):
     assignment_id = models.IntegerField(default=0)
     course_id = models.ForeignKey(Course)
-    pub_date = models.DateTimeField('date published')
+    pub_date = models.DateTimeField('Date Published')
     due_date = models.DateTimeField('Due Date')
     total_grade = models.IntegerField(default=0)
 
