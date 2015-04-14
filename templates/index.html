@@ -18,11 +18,9 @@
        
       <section class="top-bar-section">    
         <ul class="right">
-          <li class="divider"></li>
-          <li><a href="Home.html"><strong>About Us</strong></a></li>
-          <li><a href="Home.html"><strong>Contact</strong></a></li>
-          <li><a href="#"><strong>Support</strong></a></li>
-          <li class="divider"></li>
+          {%if user.is_authenticated%}
+            <li class="name"><h1><strong>{{request.user.fname}}</strong></h1></li>
+          {%endif%}
           <li class="has-dropdown">
             <a href="www.cuny.edu"><strong>CUNY Website</strong></a>
             <ul class="dropdown">
@@ -63,26 +61,27 @@
               </div>
               <div class="large-6 columns">
                 <div class="large-8 columns">
-                  <a href="#" class="radius button small right" data-reveal-id="LoginModal"><strong>Login</strong></a>
+                  <a href="#" class="radius button small right" data-reveal-id="LoginModal"<strong>Login</strong></a>
 
                   <div id="LoginModal" class="reveal-modal" data-reveal>
-                    <form data-abide>
+                    <form data-abide action = " {% url 'login'%}" method = "POST">
+                      {% csrf_token%}
                       <h4>Log In</h4>
                       <hr/>
 
                       <div class="row">
                         <div class="large-12 columns" class="email-field">
                           <label>Email:
-                            <input type="email" placeholder="example@dot.com" required/>
+                            <input name="email" type="email" placeholder="example@dot.com" required/>
                           </label>
                           <small class="error">Email is required and must be in a valid format</small>
                         </div>
                       </div>
 
-		                  <div class="row">
+                      <div class="row">
                         <div class="large-12 columns" class="name-field">
                           <label>Password:
-                            <input type="password" placeholder="" required/>
+                            <input name="password"type="password" placeholder="" required/>
                           </label>
                           <small class="error">Please enter password</small>
                         </div>
@@ -92,7 +91,7 @@
                         <input id="cbRemember" type="checkbox"></input><label for="cbRemember">Remember me</label>
                       </div>
 
-	                    <div class="row">
+                      <div class="row">
                         <div class="large-9 columns">
                           <ul class="inline-list left">
                             <li><a href="#">Forgot your password?</a></li>
@@ -101,7 +100,7 @@
                       </div>
                       <div class="row">  
                         <div class="large-12 columns">
-                          <a href="#" class="radius button success small right"><strong>Login</strong></a>  
+                          <button class="radius button success small right"><strong>Login</strong></a>  
                         </div>  
                       </div>                    
                     <a class="close-reveal-modal">&#215;</a>
@@ -118,7 +117,7 @@
                         <div align="center"><h2>Create an Account</h2></div>
                         <hr/>
                         <div class="medium-6 medium-centered large-centered large-6 columns">
-                          <form data-abide action = "{% url 'User:user_signup_save' %}" method="POST">
+                          <form data-abide action = "{% url 'user_signup_save' %}" method="POST">
                             {%csrf_token%}
                             <div class="name-field">
                               <label>First Name</label>

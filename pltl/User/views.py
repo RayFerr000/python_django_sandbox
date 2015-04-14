@@ -20,9 +20,13 @@ def login(request):
 	
 	if user is not None:
 		auth.login(request, user)
+
 		return render(request, 'user_home.html')
 	else:
 		return HttpResponse("invalid, not logged in")
-	
+
+def logout(request):
+    auth.logout(request)
+    return render(request, 'index.html')	
 
 # Create your views here.

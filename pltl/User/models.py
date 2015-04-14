@@ -16,6 +16,8 @@ class User(AbstractBaseUser,PermissionsMixin):
     is_admin = models.BooleanField(default = False, null = False)
     is_active = models.BooleanField(default = True, null = False)
     is_staff = models.BooleanField(default=False, null = False)
+    
+    
 
     def save(self, *args, **kwargs):
     	error = False

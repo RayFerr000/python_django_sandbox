@@ -1,4 +1,6 @@
 from django.contrib.auth.models import BaseUserManager
+
+
 class CustUserManager(BaseUserManager):
     def create_user(self, fname,lname, email, password ):
     	
@@ -10,8 +12,10 @@ class CustUserManager(BaseUserManager):
     def create_superuser(self, email, password):
         fname = 'some'
         lname = 'admin'
+        
         user = self.create_user(fname,lname,email, password)
         user.is_admin = True
         user.is_staff = True
+        user.is_superuser = True
         user.save()
         return user

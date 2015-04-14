@@ -7,14 +7,14 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('User', '0003_auto_20150322_2157'),
+        ('Assignment', '0001_initial'),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='user',
-            name='email',
-            field=models.EmailField(unique=True, max_length=50, db_index=True),
+            model_name='assignment',
+            name='pub_date',
+            field=models.DateTimeField(verbose_name=b'Date Published'),
             preserve_default=True,
         ),
     ]

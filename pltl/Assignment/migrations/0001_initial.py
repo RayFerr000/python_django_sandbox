@@ -7,7 +7,7 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('Course', '0001_initial'),
+        ('Course', '__first__'),
     ]
 
     operations = [
@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('assignment_id', models.IntegerField(default=0)),
-                ('pub_date', models.DateTimeField(verbose_name=b'date published')),
+                ('pub_date', models.DateTimeField(verbose_name=b'Date Published')),
                 ('due_date', models.DateTimeField(verbose_name=b'Due Date')),
                 ('total_grade', models.IntegerField(default=0)),
                 ('course_id', models.ForeignKey(to='Course.Course')),
